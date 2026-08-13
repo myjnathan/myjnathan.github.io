@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Git 生产安全与治理控制面</title><desc id="desc">展示身份、分支规则、评审所有权、自动化安全、密钥与制品证明六层防线。</desc>
+  <style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.title{font-size:32px;font-weight:700}.sub{font-size:16px;fill:#9fb0c8}.h{font-size:19px;font-weight:700}.b{font-size:14px;fill:#b7c5d9}.cmd{font:13px Consolas,monospace;fill:#fbbf24}.core{fill:#102b29;stroke:#34d399;stroke-width:3}.ring1{fill:none;stroke:#55aaff;stroke-width:26;opacity:.65}.ring2{fill:none;stroke:#a78bfa;stroke-width:26;opacity:.55}.card{fill:#111c33;stroke:#2d4266;stroke-width:2}.risk{fill:#311c2b;stroke:#fb7185;stroke-width:2}</style>
+  <rect width="1200" height="760" rx="24" fill="#0b1220"/>
+  <text x="54" y="58" class="title">安全治理：保护的不是仓库，而是“谁能让什么进入生产”</text><text x="54" y="88" class="sub">所有控制都应落到可执行规则；文档中的“应该”不能替代仓库与 CI 平台的强制约束。</text>
+
+  <circle cx="392" cy="386" r="220" class="ring2"/><circle cx="392" cy="386" r="152" class="ring1"/><circle cx="392" cy="386" r="80" class="core"/>
+  <text x="352" y="379" class="h">生产</text><text x="335" y="408" class="h">可追溯变更</text>
+  <text x="340" y="214" class="h">身份与签名</text><text x="485" y="310" class="h">分支规则</text><text x="470" y="500" class="h">评审所有权</text><text x="288" y="578" class="h">自动化安全</text><text x="154" y="500" class="h">密钥防泄漏</text><text x="166" y="310" class="h">制品证明</text>
+
+  <rect x="686" y="142" width="460" height="92" rx="16" class="card"/><text x="712" y="177" class="h">1. 身份：最小权限 + 可验证作者</text><text x="712" y="207" class="b">SSO / MFA、短期凭据、签名提交与标签、机器人独立身份</text>
+  <rect x="686" y="252" width="460" height="92" rx="16" class="card"/><text x="712" y="287" class="h">2. 规则：机器强制保护关键引用</text><text x="712" y="317" class="b">必需 PR/检查/审批/线性历史；禁止删除与绕过</text>
+  <rect x="686" y="362" width="460" height="92" rx="16" class="card"/><text x="712" y="397" class="h">3. 所有权：关键路径由领域负责人批准</text><text x="712" y="427" class="b">CODEOWNERS 同时保护 .github、部署、鉴权与迁移目录</text>
+  <rect x="686" y="472" width="460" height="92" rx="16" class="card"/><text x="712" y="507" class="h">4. CI：工作流也是生产代码</text><text x="712" y="537" class="b">第三方 Action 固定完整 SHA；限制 token 权限；隔离不可信输入</text>
+  <rect x="686" y="582" width="460" height="92" rx="16" class="risk"/><text x="712" y="617" class="h">5. 秘密：阻断优先于事后告警</text><text x="712" y="647" class="b">push protection；一旦泄漏先轮换/吊销，再讨论历史清理</text>
+  <rect x="54" y="700" width="1092" height="36" rx="10" fill="#172237"/><text x="76" y="724" class="b">审计问题：谁批准？哪些检查通过？部署了哪个摘要？是否绕过规则？凭据是否过期？能否在 10 分钟内回滚？</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">生产级日常开发闭环</title><desc id="desc">从同步主干、创建短分支、拆分改动、验证、提交、变基、推送到拉取请求的日常流程。</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#55aaff"/></marker><style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.title{font-size:32px;font-weight:700}.sub{font-size:16px;fill:#9fb0c8}.n{font-size:24px;font-weight:700;fill:#55aaff}.h{font-size:18px;font-weight:700}.b{font-size:14px;fill:#b7c5d9}.cmd{font:13px Consolas,monospace;fill:#fbbf24}.card{fill:#111c33;stroke:#2d4266;stroke-width:2}.gate{fill:#102b29;stroke:#34d399;stroke-width:2}.risk{fill:#311c2b;stroke:#fb7185;stroke-width:2}.flow{stroke:#55aaff;stroke-width:3;fill:none;marker-end:url(#a)}</style></defs>
+  <rect width="1200" height="720" rx="24" fill="#0b1220"/>
+  <text x="54" y="58" class="title">日常闭环：把风险消灭在 push 之前</text><text x="54" y="88" class="sub">默认采用短生命周期分支；每一步都有可观察的输入、输出和停止条件。</text>
+  <path d="M164 217H264M404 217H504M644 217H744M884 217H984" class="flow"/>
+  <rect x="54" y="142" width="110" height="150" rx="16" class="card"/><text x="76" y="180" class="n">01</text><text x="76" y="210" class="h">同步</text><text x="76" y="241" class="cmd">fetch</text><text x="76" y="266" class="b">只读取远端</text>
+  <rect x="274" y="142" width="130" height="150" rx="16" class="card"/><text x="296" y="180" class="n">02</text><text x="296" y="210" class="h">建短分支</text><text x="296" y="241" class="cmd">switch -c</text><text x="296" y="266" class="b">关联一个任务</text>
+  <rect x="514" y="142" width="130" height="150" rx="16" class="card"/><text x="536" y="180" class="n">03</text><text x="536" y="210" class="h">小步修改</text><text x="536" y="241" class="cmd">status</text><text x="536" y="266" class="b">保持单一意图</text>
+  <rect x="754" y="142" width="130" height="150" rx="16" class="card"/><text x="776" y="180" class="n">04</text><text x="776" y="210" class="h">选择暂存</text><text x="776" y="241" class="cmd">add -p</text><text x="776" y="266" class="b">排除噪声改动</text>
+  <rect x="994" y="142" width="130" height="150" rx="16" class="gate"/><text x="1016" y="180" class="n">05</text><text x="1016" y="210" class="h">本地验证</text><text x="1016" y="241" class="cmd">test / lint</text><text x="1016" y="266" class="b">失败立即停止</text>
+
+  <path d="M1059 292V369H944M824 444H724M604 444H504M384 444H284M164 444H104V521" class="flow"/>
+  <rect x="814" y="369" width="130" height="150" rx="16" class="card"/><text x="836" y="407" class="n">06</text><text x="836" y="437" class="h">提交快照</text><text x="836" y="468" class="cmd">commit -S</text><text x="836" y="493" class="b">解释为什么</text>
+  <rect x="574" y="369" width="130" height="150" rx="16" class="card"/><text x="596" y="407" class="n">07</text><text x="596" y="437" class="h">自审历史</text><text x="596" y="468" class="cmd">log / show</text><text x="596" y="493" class="b">提交可独立理解</text>
+  <rect x="334" y="369" width="130" height="150" rx="16" class="card"/><text x="356" y="407" class="n">08</text><text x="356" y="437" class="h">重放主干</text><text x="356" y="468" class="cmd">rebase</text><text x="356" y="493" class="b">仅改自己的历史</text>
+  <rect x="94" y="369" width="130" height="150" rx="16" class="card"/><text x="116" y="407" class="n">09</text><text x="116" y="437" class="h">安全推送</text><text x="116" y="468" class="cmd">push -u</text><text x="116" y="493" class="b">拒绝非快进</text>
+  <rect x="94" y="552" width="850" height="104" rx="16" class="gate"/><text x="120" y="589" class="n">10</text><text x="174" y="589" class="h">Pull Request：描述意图、风险、验证证据、回滚方案</text><text x="120" y="625" class="b">小 PR → 自动检查 → 代码所有者评审 → 解决对话 → 合并队列 / squash merge</text>
+  <rect x="982" y="369" width="142" height="287" rx="16" class="risk"/><text x="1006" y="409" class="h">禁止捷径</text><text x="1006" y="451" class="b">直接推 main</text><text x="1006" y="487" class="b">跳过检查</text><text x="1006" y="523" class="b">大杂烩提交</text><text x="1006" y="559" class="b">复制密钥入库</text><text x="1006" y="595" class="b">无保护 force</text><text x="1006" y="631" class="b">线上手工改码</text>
+</svg>

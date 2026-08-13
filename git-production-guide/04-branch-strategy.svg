@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">主干开发与发布分支策略</title><desc id="desc">展示主干开发的短分支、发布标签、维护分支与紧急修复如何形成受控交付。</desc>
+  <defs><marker id="b" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#55aaff"/></marker><style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.title{font-size:32px;font-weight:700}.sub{font-size:16px;fill:#9fb0c8}.lane{font-size:18px;font-weight:700}.b{font-size:14px;fill:#b7c5d9}.cmd{font:13px Consolas,monospace;fill:#fbbf24}.main{stroke:#34d399;stroke-width:8;fill:none}.feat{stroke:#55aaff;stroke-width:6;fill:none}.release{stroke:#a78bfa;stroke-width:6;fill:none}.hot{stroke:#fb7185;stroke-width:6;fill:none}.dotM{fill:#0b1220;stroke:#34d399;stroke-width:5}.dotF{fill:#0b1220;stroke:#55aaff;stroke-width:4}.tag{fill:#211b3a;stroke:#a78bfa;stroke-width:2}.rule{fill:#111c33;stroke:#2d4266;stroke-width:2}</style></defs>
+  <rect width="1200" height="720" rx="24" fill="#0b1220"/>
+  <text x="54" y="58" class="title">分支策略：主干是集成点，发布是主干的可追溯投影</text><text x="54" y="88" class="sub">默认选择 trunk-based；只有需要并行维护多个生产版本时，才引入长期 release 分支。</text>
+  <text x="54" y="160" class="lane">feature/*</text><path d="M210 252C280 252 270 166 350 166H470C530 166 520 252 590 252" class="feat"/><circle cx="350" cy="166" r="10" class="dotF"/><circle cx="470" cy="166" r="10" class="dotF"/>
+  <text x="54" y="260" class="lane">main</text><path d="M210 252H1100" class="main"/><circle cx="250" cy="252" r="11" class="dotM"/><circle cx="590" cy="252" r="11" class="dotM"/><circle cx="785" cy="252" r="11" class="dotM"/><circle cx="1040" cy="252" r="11" class="dotM"/>
+  <text x="54" y="360" class="lane">release/1.x</text><path d="M590 252C640 252 625 353 690 353H1015" class="release"/><circle cx="785" cy="353" r="10" class="dotF"/><circle cx="1015" cy="353" r="10" class="dotF"/>
+  <text x="54" y="460" class="lane">hotfix/*</text><path d="M785 353C815 353 810 448 865 448H940C975 448 975 353 1015 353" class="hot"/><path d="M940 448C980 448 985 252 1040 252" class="hot"/>
+  <rect x="688" y="112" width="98" height="52" rx="12" class="tag"/><text x="708" y="144" class="cmd">v1.0.0</text><path d="M737 164V241" stroke="#a78bfa" stroke-width="2"/>
+  <rect x="950" y="112" width="98" height="52" rx="12" class="tag"/><text x="970" y="144" class="cmd">v1.1.0</text><path d="M999 164V241" stroke="#a78bfa" stroke-width="2"/>
+  <text x="250" y="293" class="b">稳定基线</text><text x="545" y="293" class="b">PR 合并</text><text x="738" y="394" class="b">维护补丁</text><text x="844" y="489" class="b">生产修复</text><text x="995" y="293" class="b">回灌主干</text>
+
+  <rect x="54" y="530" width="330" height="130" rx="16" class="rule"/><text x="78" y="566" class="lane">短分支约束</text><text x="78" y="600" class="b">寿命以小时/天计，不以周计</text><text x="78" y="628" class="b">一个分支只承载一个可描述变更</text>
+  <rect x="435" y="530" width="330" height="130" rx="16" class="rule"/><text x="459" y="566" class="lane">长期分支触发条件</text><text x="459" y="600" class="b">仍在支持旧版，且不能直接升级</text><text x="459" y="628" class="b">明确 EOL、责任人、回灌策略</text>
+  <rect x="816" y="530" width="330" height="130" rx="16" class="rule"/><text x="840" y="566" class="lane">合并策略</text><text x="840" y="600" class="b">主干保持线性、可二分、可回滚</text><text x="840" y="628" class="b">团队统一 squash 或 rebase merge</text>
+</svg>

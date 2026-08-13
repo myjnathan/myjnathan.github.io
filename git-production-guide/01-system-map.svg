@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Git 生产系统全景图</title>
+  <desc id="desc">从开发者工作区、暂存区、本地对象库、远程仓库到持续集成、部署与可观测性的完整交付链路。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 Z" fill="#55aaff"/></marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 Z" fill="#34d399"/></marker>
+    <style>
+      text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.title{font-size:32px;font-weight:700}.sub{font-size:16px;fill:#9fb0c8}.lane{font-size:15px;font-weight:700;letter-spacing:1px;fill:#55aaff}.h{font-size:20px;font-weight:700}.b{font-size:15px;fill:#b7c5d9}.cmd{font:14px Consolas,monospace;fill:#fbbf24}.node{fill:#111c33;stroke:#2d4266;stroke-width:2}.gate{fill:#10283a;stroke:#34d399;stroke-width:2}.flow{stroke:#55aaff;stroke-width:3;fill:none;marker-end:url(#arrow)}.ok{stroke:#34d399;stroke-width:3;fill:none;marker-end:url(#arrowGreen)}
+    </style>
+  </defs>
+  <rect width="1200" height="720" rx="24" fill="#0b1220"/>
+  <text x="54" y="58" class="title">Git 生产系统：版本控制只是交付闭环的骨架</text>
+  <text x="54" y="88" class="sub">每一次变更都要经过“选择 → 固化 → 协作 → 验证 → 发布 → 反馈”，而不是从编辑器直接跳到生产。</text>
+
+  <text x="54" y="143" class="lane">开发者工作站</text>
+  <rect x="54" y="164" width="210" height="126" rx="16" class="node"/>
+  <text x="78" y="200" class="h">工作区</text><text x="78" y="229" class="b">未跟踪 / 已修改文件</text><text x="78" y="260" class="cmd">git diff</text>
+  <rect x="310" y="164" width="210" height="126" rx="16" class="node"/>
+  <text x="334" y="200" class="h">暂存区</text><text x="334" y="229" class="b">下一次提交的精确快照</text><text x="334" y="260" class="cmd">git add -p</text>
+  <rect x="566" y="164" width="210" height="126" rx="16" class="node"/>
+  <text x="590" y="200" class="h">本地对象库</text><text x="590" y="229" class="b">commit / tree / blob</text><text x="590" y="260" class="cmd">git commit</text>
+  <path d="M264 227 H302" class="flow"/><path d="M520 227 H558" class="flow"/>
+
+  <text x="54" y="348" class="lane">共享控制面</text>
+  <rect x="54" y="369" width="264" height="132" rx="16" class="node"/>
+  <text x="78" y="405" class="h">远程仓库</text><text x="78" y="434" class="b">受保护分支 + 不可变历史</text><text x="78" y="466" class="cmd">git push / fetch</text>
+  <rect x="365" y="369" width="264" height="132" rx="16" class="gate"/>
+  <text x="389" y="405" class="h">Pull Request</text><text x="389" y="434" class="b">评审、所有权、变更解释</text><text x="389" y="466" class="cmd">review + approval</text>
+  <rect x="676" y="369" width="264" height="132" rx="16" class="gate"/>
+  <text x="700" y="405" class="h">CI 质量门</text><text x="700" y="434" class="b">测试、扫描、构建、制品证明</text><text x="700" y="466" class="cmd">checks must pass</text>
+  <path d="M671 290 C671 334 186 325 186 361" class="flow"/><path d="M318 435 H357" class="ok"/><path d="M629 435 H668" class="ok"/>
+
+  <text x="54" y="558" class="lane">交付与反馈</text>
+  <rect x="54" y="579" width="210" height="92" rx="16" class="node"/><text x="78" y="616" class="h">不可变制品</text><text x="78" y="645" class="b">commit SHA → artifact</text>
+  <rect x="310" y="579" width="210" height="92" rx="16" class="node"/><text x="334" y="616" class="h">分阶段部署</text><text x="334" y="645" class="b">staging → canary → prod</text>
+  <rect x="566" y="579" width="210" height="92" rx="16" class="node"/><text x="590" y="616" class="h">观测与回滚</text><text x="590" y="645" class="b">指标、日志、告警、revert</text>
+  <path d="M808 501 C808 550 159 539 159 571" class="ok"/><path d="M264 625 H302" class="flow"/><path d="M520 625 H558" class="flow"/>
+
+  <rect x="984" y="164" width="162" height="507" rx="18" fill="#17182f" stroke="#a78bfa" stroke-width="2"/>
+  <text x="1008" y="202" class="h">生产原则</text>
+  <text x="1008" y="242" class="b">① 小批量</text><text x="1008" y="277" class="b">② 可审查</text><text x="1008" y="312" class="b">③ 可追溯</text><text x="1008" y="347" class="b">④ 可验证</text><text x="1008" y="382" class="b">⑤ 可回滚</text><text x="1008" y="417" class="b">⑥ 最小权限</text>
+  <line x1="1008" y1="449" x2="1122" y2="449" stroke="#344565"/>
+  <text x="1008" y="486" class="sub">核心不变量</text>
+  <text x="1008" y="521" class="b">主分支永远</text><text x="1008" y="547" class="b">可构建、可部署</text>
+  <text x="1008" y="590" class="b">生产变更必须</text><text x="1008" y="616" class="b">能定位到 SHA</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">同步远端的安全决策树</title><desc id="desc">根据工作区是否干净、本地与远端是否前进或分叉，选择快进、变基、暂存或停止处理。</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#55aaff"/></marker><style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.title{font-size:32px;font-weight:700}.sub{font-size:16px;fill:#9fb0c8}.q{font-size:18px;font-weight:700}.b{font-size:14px;fill:#b7c5d9}.cmd{font:13px Consolas,monospace;fill:#fbbf24}.yes{font-size:13px;font-weight:700;fill:#34d399}.no{font-size:13px;font-weight:700;fill:#fb7185}.node{fill:#111c33;stroke:#2d4266;stroke-width:2}.decision{fill:#10243b;stroke:#55aaff;stroke-width:2}.safe{fill:#102b29;stroke:#34d399;stroke-width:2}.stop{fill:#311c2b;stroke:#fb7185;stroke-width:2}.flow{stroke:#55aaff;stroke-width:2.5;fill:none;marker-end:url(#a)}</style></defs>
+  <rect width="1200" height="760" rx="24" fill="#0b1220"/>
+  <text x="54" y="58" class="title">同步决策树：fetch 负责观察，整合动作必须显式</text><text x="54" y="88" class="sub">生产团队应避免不可预测的裸 git pull；先拉取引用，再根据提交图决定下一步。</text>
+  <rect x="448" y="122" width="304" height="74" rx="16" class="node"/><text x="477" y="153" class="q">开始同步</text><text x="477" y="178" class="cmd">git status → git fetch --prune</text>
+  <rect x="448" y="238" width="304" height="74" rx="16" class="decision"/><text x="477" y="282" class="q">工作区是否干净？</text><path d="M600 196V230" class="flow"/>
+  <rect x="86" y="355" width="286" height="96" rx="16" class="stop"/><text x="112" y="390" class="q">先保存或拆分改动</text><text x="112" y="421" class="cmd">commit / stash push -u</text><path d="M448 275H229V347" class="flow"/><text x="302" y="263" class="no">否</text>
+  <rect x="448" y="355" width="304" height="96" rx="16" class="decision"/><text x="477" y="389" class="q">本地与 upstream 的关系？</text><text x="477" y="421" class="cmd">git log --left-right --graph HEAD...@{u}</text><path d="M600 312V347" class="flow"/><text x="613" y="334" class="yes">是</text>
+
+  <rect x="54" y="530" width="220" height="126" rx="16" class="safe"/><text x="80" y="568" class="q">仅远端前进</text><text x="80" y="600" class="cmd">merge --ff-only</text><text x="80" y="630" class="b">只允许快进</text>
+  <rect x="326" y="530" width="220" height="126" rx="16" class="safe"/><text x="352" y="568" class="q">仅本地前进</text><text x="352" y="600" class="cmd">push</text><text x="352" y="630" class="b">让远端快进</text>
+  <rect x="598" y="530" width="220" height="126" rx="16" class="decision"/><text x="624" y="568" class="q">双方已分叉</text><text x="624" y="600" class="cmd">rebase @{u}</text><text x="624" y="630" class="b">仅限个人短分支</text>
+  <rect x="870" y="530" width="276" height="126" rx="16" class="stop"/><text x="896" y="568" class="q">共享/受保护分支分叉</text><text x="896" y="600" class="cmd">STOP → 协作确认</text><text x="896" y="630" class="b">不重写别人已依赖的历史</text>
+  <path d="M520 451V486H164V522M565 451V493H436V522M635 451V493H708V522M690 451V486H1008V522" class="flow"/>
+  <text x="82" y="497" class="b">behind</text><text x="384" y="497" class="b">ahead</text><text x="654" y="497" class="b">diverged</text><text x="946" y="497" class="b">protected</text>
+  <rect x="54" y="697" width="1092" height="38" rx="10" fill="#172237"/><text x="76" y="722" class="b">底线：需要重写远端个人分支时，只用 git push --force-with-lease；若租约失败，重新 fetch 并审查。</text>
+</svg>

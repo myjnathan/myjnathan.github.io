@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">从标签到生产回滚的发布闭环</title><desc id="desc">展示签名标签、持续集成制品、预发布环境、灰度、生产、监控和回滚的双向链路。</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#34d399"/></marker><marker id="r" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#fb7185"/></marker><style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.title{font-size:32px;font-weight:700}.sub{font-size:16px;fill:#9fb0c8}.h{font-size:18px;font-weight:700}.b{font-size:14px;fill:#b7c5d9}.cmd{font:13px Consolas,monospace;fill:#fbbf24}.box{fill:#111c33;stroke:#2d4266;stroke-width:2}.good{fill:#102b29;stroke:#34d399;stroke-width:2}.risk{fill:#311c2b;stroke:#fb7185;stroke-width:2}.go{stroke:#34d399;stroke-width:3;fill:none;marker-end:url(#a)}.back{stroke:#fb7185;stroke-width:3;fill:none;marker-end:url(#r)}</style></defs>
+  <rect width="1200" height="760" rx="24" fill="#0b1220"/>
+  <text x="54" y="58" class="title">发布闭环：同一个 SHA 逐环境晋级，失败时恢复已知良好状态</text><text x="54" y="88" class="sub">不要在每个环境重新构建；制品、配置和部署记录共同构成可审计发布。</text>
+  <path d="M188 224H230M364 224H406M540 224H582M716 224H758M892 224H934" class="go"/>
+  <rect x="54" y="158" width="134" height="132" rx="16" class="box"/><text x="78" y="195" class="h">签名标签</text><text x="78" y="225" class="cmd">tag -s vX.Y.Z</text><text x="78" y="255" class="b">指向 release SHA</text>
+  <rect x="230" y="158" width="134" height="132" rx="16" class="box"/><text x="254" y="195" class="h">构建制品</text><text x="254" y="225" class="cmd">SHA + digest</text><text x="254" y="255" class="b">一次构建</text>
+  <rect x="406" y="158" width="134" height="132" rx="16" class="box"/><text x="430" y="195" class="h">Staging</text><text x="430" y="225" class="cmd">smoke / e2e</text><text x="430" y="255" class="b">真实迁移演练</text>
+  <rect x="582" y="158" width="134" height="132" rx="16" class="box"/><text x="606" y="195" class="h">Canary</text><text x="606" y="225" class="cmd">1% → 10%</text><text x="606" y="255" class="b">自动判定指标</text>
+  <rect x="758" y="158" width="134" height="132" rx="16" class="good"/><text x="782" y="195" class="h">Production</text><text x="782" y="225" class="cmd">promote</text><text x="782" y="255" class="b">继续用同一制品</text>
+  <rect x="934" y="158" width="212" height="132" rx="16" class="good"/><text x="958" y="195" class="h">版本观测</text><text x="958" y="225" class="cmd">release_sha label</text><text x="958" y="255" class="b">SLO、错误率、延迟</text>
+
+  <rect x="54" y="356" width="1092" height="92" rx="16" class="risk"/><text x="82" y="392" class="h">触发回滚：SLO 超阈值、关键行为回归、数据迁移失败、安全事件</text><text x="82" y="423" class="b">停止放量 → 冻结变更 → 选择“回退制品”或“前向修复” → 保留证据 → 创建修复 PR</text>
+  <path d="M1040 290V348" class="back"/>
+
+  <rect x="54" y="508" width="328" height="156" rx="16" class="good"/><text x="80" y="546" class="h">路径 A：回退制品</text><text x="80" y="579" class="b">应用无状态、数据库向后兼容</text><text x="80" y="612" class="cmd">deploy previous digest</text><text x="80" y="640" class="b">最快恢复服务</text>
+  <rect x="436" y="508" width="328" height="156" rx="16" class="box"/><text x="462" y="546" class="h">路径 B：revert + 新发布</text><text x="462" y="579" class="b">共享历史需要清晰审计</text><text x="462" y="612" class="cmd">git revert &lt;sha&gt;</text><text x="462" y="640" class="b">重新跑完整质量门</text>
+  <rect x="818" y="508" width="328" height="156" rx="16" class="risk"/><text x="844" y="546" class="h">路径 C：前向修复</text><text x="844" y="579" class="b">回退会破坏数据或协议兼容</text><text x="844" y="612" class="cmd">hotfix → PR → canary</text><text x="844" y="640" class="b">必须有事故指挥与时限</text>
+  <path d="M600 448V480H218V500M600 480V500M600 480H982V500" class="back"/>
+  <text x="54" y="716" class="b">发布记录的最小字段：commit SHA、tag、artifact digest、SBOM、配置版本、数据库迁移版本、审批者、时间、回滚目标。</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 740" role="img" aria-labelledby="title desc">
+  <title id="title">三方合并与冲突处理闭环</title><desc id="desc">展示共同祖先、本地版本、远端版本、冲突工作区、验证与继续或中止的完整过程。</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#55aaff"/></marker><style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.title{font-size:32px;font-weight:700}.sub{font-size:16px;fill:#9fb0c8}.h{font-size:19px;font-weight:700}.b{font-size:14px;fill:#b7c5d9}.cmd{font:13px Consolas,monospace;fill:#fbbf24}.node{fill:#111c33;stroke:#2d4266;stroke-width:2}.base{fill:#211b3a;stroke:#a78bfa;stroke-width:2}.left{fill:#10243b;stroke:#55aaff;stroke-width:2}.right{fill:#102b29;stroke:#34d399;stroke-width:2}.risk{fill:#311c2b;stroke:#fb7185;stroke-width:2}.flow{stroke:#55aaff;stroke-width:2.5;fill:none;marker-end:url(#a)}.dash{stroke:#526987;stroke-width:2;stroke-dasharray:8 7;fill:none}</style></defs>
+  <rect width="1200" height="740" rx="24" fill="#0b1220"/>
+  <text x="54" y="58" class="title">冲突处理：不是选 ours / theirs，而是恢复业务不变量</text><text x="54" y="88" class="sub">Git 只能指出文本重叠；正确结果必须由理解意图的人重建，并通过测试证明。</text>
+  <rect x="452" y="122" width="296" height="82" rx="16" class="base"/><text x="480" y="157" class="h">共同祖先 BASE</text><text x="480" y="184" class="cmd">git merge-base HEAD @{u}</text>
+  <rect x="132" y="252" width="280" height="96" rx="16" class="left"/><text x="160" y="288" class="h">OURS：当前分支意图</text><text x="160" y="318" class="b">从 BASE 到 HEAD 的变更</text>
+  <rect x="788" y="252" width="280" height="96" rx="16" class="right"/><text x="816" y="288" class="h">THEIRS：被整合分支意图</text><text x="816" y="318" class="b">从 BASE 到 upstream 的变更</text>
+  <path d="M495 204L370 244M705 204L830 244" class="flow"/>
+  <rect x="408" y="405" width="384" height="112" rx="16" class="risk"/><text x="436" y="441" class="h">冲突工作区：逐块重建最终状态</text><text x="436" y="472" class="cmd">git diff --cc → 编辑 → git add</text><text x="436" y="499" class="b">同时检查语义冲突、生成文件、锁文件与迁移顺序</text>
+  <path d="M272 348C272 391 452 373 488 397M928 348C928 391 748 373 712 397" class="flow"/>
+  <rect x="78" y="583" width="272" height="100" rx="16" class="node"/><text x="104" y="620" class="h">1. 理解双方目的</text><text x="104" y="650" class="b">读 PR、提交与关联测试</text>
+  <rect x="392" y="583" width="272" height="100" rx="16" class="node"/><text x="418" y="620" class="h">2. 验证组合结果</text><text x="418" y="650" class="cmd">test + diff --check</text>
+  <rect x="706" y="583" width="192" height="100" rx="16" class="right"/><text x="732" y="620" class="h">3A. 继续</text><text x="732" y="650" class="cmd">--continue</text>
+  <rect x="940" y="583" width="192" height="100" rx="16" class="risk"/><text x="966" y="620" class="h">3B. 中止</text><text x="966" y="650" class="cmd">--abort</text>
+  <path d="M600 517V555H214V575M600 555H528V575M600 555H802V575M600 555H1036V575" class="flow"/>
+  <path d="M350 633H384M664 633H698M898 633H932" class="dash"/>
+  <text x="54" y="716" class="b">决策规则：不理解任何一侧的业务意图，就中止并找原作者；不要以“文件能编译”代替行为正确。</text>
+</svg>

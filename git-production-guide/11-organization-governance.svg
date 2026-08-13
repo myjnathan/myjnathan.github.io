@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Git 组织治理一页图</title>
+  <desc id="desc">展示组织治理从身份和团队、组织策略、仓库所有权、变更门禁、发布权限到审计改进的六层控制，以及各层责任人和关键规则。</desc>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#34d399"/></marker>
+    <style>
+      text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.title{font-size:32px;font-weight:700}.sub{font-size:16px;fill:#9fb0c8}.layer{font-size:22px;font-weight:700}.owner{font-size:15px;font-weight:700;fill:#55aaff}.h{font-size:16px;font-weight:700}.b{font-size:14px;fill:#b7c5d9}.code{font:13px Consolas,monospace;fill:#fbbf24}.box{fill:#111c33;stroke:#2d4266;stroke-width:2}.policy{fill:#10243b;stroke:#55aaff;stroke-width:2}.gate{fill:#102b29;stroke:#34d399;stroke-width:2}.audit{fill:#211b3a;stroke:#a78bfa;stroke-width:2}.risk{fill:#311c2b;stroke:#fb7185;stroke-width:2}.flow{stroke:#34d399;stroke-width:3;fill:none;marker-end:url(#a)}
+    </style>
+  </defs>
+  <rect width="1200" height="800" rx="24" fill="#0b1220"/>
+  <text x="54" y="58" class="title">组织治理一页图：人负责决策，平台强制规则，流水线留下证据</text>
+  <text x="54" y="88" class="sub">一条主线看懂：身份进入组织 → 团队获得最小权限 → 规则保护仓库 → PR 证明变更 → 发布隔离权限 → 审计反哺策略。</text>
+
+  <text x="54" y="140" class="owner">控制层</text><text x="280" y="140" class="owner">谁负责</text><text x="475" y="140" class="owner">机器强制什么</text><text x="870" y="140" class="owner">留下什么证据</text>
+
+  <rect x="54" y="158" width="194" height="78" rx="14" class="policy"/><text x="76" y="190" class="layer">1 身份与团队</text><text x="76" y="216" class="b">谁可以进入</text>
+  <rect x="270" y="158" width="174" height="78" rx="14" class="box"/><text x="292" y="188" class="h">Org Owners</text><text x="292" y="214" class="b">至少两人；应急接管</text>
+  <rect x="466" y="158" width="380" height="78" rx="14" class="box"/><text x="488" y="188" class="h">SSO / MFA · 人员通过 Team 授权</text><text x="488" y="214" class="code">Base permission 最低 · Owner 非日常身份</text>
+  <rect x="868" y="158" width="278" height="78" rx="14" class="box"/><text x="890" y="188" class="h">成员、团队、角色清单</text><text x="890" y="214" class="b">入职 / 转岗 / 离职记录</text>
+
+  <rect x="54" y="252" width="194" height="78" rx="14" class="policy"/><text x="76" y="284" class="layer">2 组织策略</text><text x="76" y="310" class="b">全局最低基线</text>
+  <rect x="270" y="252" width="174" height="78" rx="14" class="box"/><text x="292" y="282" class="h">Platform + Security</text><text x="292" y="308" class="b">共同维护基线</text>
+  <rect x="466" y="252" width="380" height="78" rx="14" class="box"/><text x="488" y="282" class="h">Org Rulesets · Action allowlist</text><text x="488" y="308" class="code">Secret policy · 仓库只能更严格</text>
+  <rect x="868" y="252" width="278" height="78" rx="14" class="box"/><text x="890" y="282" class="h">规则版本与例外登记</text><text x="890" y="308" class="b">例外必须有责任人与到期日</text>
+
+  <rect x="54" y="346" width="194" height="78" rx="14" class="policy"/><text x="76" y="378" class="layer">3 仓库所有权</text><text x="76" y="404" class="b">谁对代码负责</text>
+  <rect x="270" y="346" width="174" height="78" rx="14" class="box"/><text x="292" y="376" class="h">Repo Maintainer</text><text x="292" y="402" class="b">+ Code Owners</text>
+  <rect x="466" y="346" width="380" height="78" rx="14" class="box"/><text x="488" y="376" class="h">CODEOWNERS · 仓库属性 · 可见性</text><text x="488" y="402" class="code">关键路径 owner · 归档 / EOL</text>
+  <rect x="868" y="346" width="278" height="78" rx="14" class="box"/><text x="890" y="376" class="h">责任矩阵与资产目录</text><text x="890" y="402" class="b">服务 → 仓库 → 团队 → 值班</text>
+
+  <rect x="54" y="440" width="194" height="78" rx="14" class="gate"/><text x="76" y="472" class="layer">4 变更门禁</text><text x="76" y="498" class="b">什么能进主干</text>
+  <rect x="270" y="440" width="174" height="78" rx="14" class="box"/><text x="292" y="470" class="h">Author + Reviewer</text><text x="292" y="496" class="b">职责分离</text>
+  <rect x="466" y="440" width="380" height="78" rx="14" class="gate"/><text x="488" y="470" class="h">PR · 必需检查 · 独立审批 · 对话解决</text><text x="488" y="496" class="code">作者不能批准自己的高风险变更</text>
+  <rect x="868" y="440" width="278" height="78" rx="14" class="box"/><text x="890" y="470" class="h">提交、评审、测试结果</text><text x="890" y="496" class="b">风险与回滚说明</text>
+
+  <rect x="54" y="534" width="194" height="78" rx="14" class="gate"/><text x="76" y="566" class="layer">5 发布权限</text><text x="76" y="592" class="b">谁能动生产</text>
+  <rect x="270" y="534" width="174" height="78" rx="14" class="box"/><text x="292" y="564" class="h">CI/CD Admin + SRE</text><text x="292" y="590" class="b">开发不持有长期密钥</text>
+  <rect x="466" y="534" width="380" height="78" rx="14" class="gate"/><text x="488" y="564" class="h">Environment approval · OIDC</text><text x="488" y="590" class="code">同一制品晋级 · 生产职责分离</text>
+  <rect x="868" y="534" width="278" height="78" rx="14" class="box"/><text x="890" y="564" class="h">SHA、制品摘要、审批</text><text x="890" y="590" class="b">部署、回滚与告警记录</text>
+
+  <rect x="54" y="628" width="194" height="78" rx="14" class="audit"/><text x="76" y="660" class="layer">6 审计与改进</text><text x="76" y="686" class="b">规则是否有效</text>
+  <rect x="270" y="628" width="174" height="78" rx="14" class="box"/><text x="292" y="658" class="h">Security + SRE</text><text x="292" y="684" class="b">季度复核；事故复盘</text>
+  <rect x="466" y="628" width="380" height="78" rx="14" class="audit"/><text x="488" y="658" class="h">Audit log · 例外到期 · 权限复核</text><text x="488" y="684" class="code">规则演练 · 审计发现更新基线</text>
+  <rect x="868" y="628" width="278" height="78" rx="14" class="box"/><text x="890" y="658" class="h">绕过、权限与事故报告</text><text x="890" y="684" class="b">整改负责人和完成期限</text>
+
+  <path d="M151 236V244M151 330V338M151 424V432M151 518V526M151 612V620" class="flow"/>
+  <rect x="54" y="734" width="1092" height="42" rx="10" class="risk"/><text x="76" y="761" class="b">红线：用个人账号直接授权仓库、只有一名 Owner、长期管理员令牌、规则可随意绕过、生产部署无法反查 SHA。</text>
+</svg>

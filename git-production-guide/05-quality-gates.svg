@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">从提交到生产的质量门</title><desc id="desc">展示提交、拉取请求、持续集成、制品、部署和生产观测六层质量门。</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#34d399"/></marker><style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.title{font-size:32px;font-weight:700}.sub{font-size:16px;fill:#9fb0c8}.num{font-size:42px;font-weight:700;fill:#55aaff}.h{font-size:19px;font-weight:700}.b{font-size:14px;fill:#b7c5d9}.pass{font-size:13px;font-weight:700;fill:#34d399}.box{fill:#111c33;stroke:#2d4266;stroke-width:2}.gate{stroke:#34d399;stroke-width:4;fill:none;marker-end:url(#a)}</style></defs>
+  <rect width="1200" height="720" rx="24" fill="#0b1220"/>
+  <text x="54" y="58" class="title">质量门：每向生产靠近一步，证据强度必须上升</text><text x="54" y="88" class="sub">门禁不是“流程负担”，而是把口头信任转换为可复查的机器证据与责任链。</text>
+  <path d="M178 230H222M368 230H412M558 230H602M748 230H792M938 230H982" class="gate"/>
+  <g><rect x="42" y="139" width="136" height="184" rx="16" class="box"/><text x="64" y="187" class="num">1</text><text x="64" y="222" class="h">提交</text><text x="64" y="254" class="b">单一意图</text><text x="64" y="279" class="b">消息清晰</text><text x="64" y="305" class="pass">✓ 可独立撤销</text></g>
+  <g><rect x="232" y="139" width="136" height="184" rx="16" class="box"/><text x="254" y="187" class="num">2</text><text x="254" y="222" class="h">PR</text><text x="254" y="254" class="b">风险说明</text><text x="254" y="279" class="b">代码评审</text><text x="254" y="305" class="pass">✓ 所有权确认</text></g>
+  <g><rect x="422" y="139" width="136" height="184" rx="16" class="box"/><text x="444" y="187" class="num">3</text><text x="444" y="222" class="h">CI</text><text x="444" y="254" class="b">测试 / lint</text><text x="444" y="279" class="b">SAST / 依赖</text><text x="444" y="305" class="pass">✓ 可重复构建</text></g>
+  <g><rect x="612" y="139" width="136" height="184" rx="16" class="box"/><text x="634" y="187" class="num">4</text><text x="634" y="222" class="h">制品</text><text x="634" y="254" class="b">SHA 绑定</text><text x="634" y="279" class="b">签名 / SBOM</text><text x="634" y="305" class="pass">✓ 内容不可变</text></g>
+  <g><rect x="802" y="139" width="136" height="184" rx="16" class="box"/><text x="824" y="187" class="num">5</text><text x="824" y="222" class="h">部署</text><text x="824" y="254" class="b">环境审批</text><text x="824" y="279" class="b">渐进放量</text><text x="824" y="305" class="pass">✓ 自动化回滚</text></g>
+  <g><rect x="992" y="139" width="166" height="184" rx="16" class="box"/><text x="1014" y="187" class="num">6</text><text x="1014" y="222" class="h">生产</text><text x="1014" y="254" class="b">SLO / 告警</text><text x="1014" y="279" class="b">版本可观测</text><text x="1014" y="305" class="pass">✓ 反馈进变更</text></g>
+
+  <rect x="54" y="379" width="1092" height="272" rx="18" fill="#0f1930" stroke="#2d4266" stroke-width="2"/>
+  <text x="82" y="420" class="h">最小生产基线（必须自动执行）</text>
+  <g transform="translate(82 452)"><circle cx="10" cy="10" r="8" fill="#34d399"/><text x="34" y="16" class="b">主分支禁止直接 push，禁止删除与任意 force push</text></g>
+  <g transform="translate(82 497)"><circle cx="10" cy="10" r="8" fill="#34d399"/><text x="34" y="16" class="b">必需检查：单测、静态检查、构建、密钥扫描、依赖风险</text></g>
+  <g transform="translate(82 542)"><circle cx="10" cy="10" r="8" fill="#34d399"/><text x="34" y="16" class="b">至少一名独立评审者；关键目录必须由 CODEOWNERS 审批</text></g>
+  <g transform="translate(82 587)"><circle cx="10" cy="10" r="8" fill="#34d399"/><text x="34" y="16" class="b">部署记录包含 commit SHA、制品摘要、环境、操作者与回滚目标</text></g>
+  <line x1="690" y1="438" x2="690" y2="622" stroke="#344565"/>
+  <text x="724" y="468" class="h">合并停止条件</text><text x="724" y="505" class="b">任一检查失败或未运行</text><text x="724" y="538" class="b">评审对话未解决</text><text x="724" y="571" class="b">无法说明回滚路径</text><text x="724" y="604" class="b">PR 混入无关改动</text>
+</svg>
