@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">构建一次，多环境晋级</title><desc id="desc">唯一构建产生带摘要的制品，测试、预生产和生产只晋级同一个摘要，禁止各环境重新构建。</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#34d399"/></marker><marker id="r" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#fb7185"/></marker><style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.t{font-size:30px;font-weight:700}.s{font-size:15px;fill:#9fb0c8}.h{font-size:20px;font-weight:700}.b{font-size:15px;fill:#b7c5d9}.k{font:14px Consolas,monospace;fill:#fbbf24}.n{fill:#111c33;stroke:#2d4266;stroke-width:2}.g{fill:#10283a;stroke:#34d399;stroke-width:2}.bad{fill:#2d1725;stroke:#fb7185;stroke-width:2}.fg{stroke:#34d399;stroke-width:3;fill:none;marker-end:url(#a)}.fr{stroke:#fb7185;stroke-width:3;fill:none;marker-end:url(#r)}</style></defs>
+  <rect width="1200" height="700" rx="24" fill="#0b1220"/><text x="52" y="58" class="t">构建一次，多环境晋级：测试什么，就发布什么</text><text x="52" y="88" class="s">版本名给人看，digest 给机器验证；环境只改变配置和运行状态，不改变制品内容。</text>
+  <rect x="52" y="145" width="210" height="138" rx="16" class="n"/><text x="78" y="185" class="h">明确 commit</text><text x="78" y="218" class="k">sha: 8f38b5...</text><text x="78" y="249" class="b">源码 + 锁文件</text>
+  <rect x="318" y="145" width="210" height="138" rx="16" class="g"/><text x="344" y="185" class="h">唯一构建 Job</text><text x="344" y="218" class="b">固定 SDK / 参数</text><text x="344" y="249" class="b">测试 + 扫描</text>
+  <rect x="584" y="125" width="250" height="178" rx="18" fill="#211b3b" stroke="#a78bfa" stroke-width="2"/><text x="610" y="169" class="h">不可变发布候选</text><text x="610" y="204" class="k">digest: sha256:4b2...</text><text x="610" y="237" class="b">包 / 镜像 / 固件</text><text x="610" y="268" class="b">SBOM + 签名 + manifest</text>
+  <path d="M262 214H310M528 214H576" class="fg"/>
+  <rect x="924" y="112" width="224" height="112" rx="16" class="g"/><text x="950" y="151" class="h">测试环境</text><text x="950" y="183" class="k">sha256:4b2...</text>
+  <rect x="924" y="272" width="224" height="112" rx="16" class="g"/><text x="950" y="311" class="h">预生产环境</text><text x="950" y="343" class="k">sha256:4b2...</text>
+  <rect x="924" y="432" width="224" height="112" rx="16" class="g"/><text x="950" y="471" class="h">生产环境</text><text x="950" y="503" class="k">sha256:4b2...</text>
+  <path d="M834 186C878 186 875 168 916 168M834 214C878 214 875 328 916 328M834 242C878 242 875 488 916 488" class="fg"/>
+  <text x="52" y="368" class="h" fill="#fb7185">反模式：每个环境重新构建</text>
+  <rect x="52" y="397" width="210" height="116" rx="16" class="bad"/><text x="78" y="437" class="h">测试构建</text><text x="78" y="471" class="k">digest: aaa...</text>
+  <rect x="318" y="397" width="210" height="116" rx="16" class="bad"/><text x="344" y="437" class="h">预生产构建</text><text x="344" y="471" class="k">digest: bbb...</text>
+  <rect x="584" y="397" width="250" height="116" rx="16" class="bad"/><text x="610" y="437" class="h">生产现场编译</text><text x="610" y="471" class="k">digest: ???</text><path d="M262 455H310M528 455H576" class="fr"/>
+  <rect x="52" y="582" width="1096" height="68" rx="14" class="n"/><text x="78" y="623" class="h">核心验证：批准的 digest = NAS/Registry 中的 digest = 生产实际运行的 digest</text>
+</svg>
