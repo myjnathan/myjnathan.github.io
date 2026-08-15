@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">从需求到发布决定的证据链</title><desc id="desc">用户需要经过需求、风险控制、设计实现、测试用例与测试结果形成可追溯证据，最终支持发布决定和设备追踪。</desc>
+  <defs><style>.bg{fill:#0b1220}.box{fill:#172033;stroke:#64748b;stroke-width:2}.risk{fill:#3d2c14;stroke:#f59e0b;stroke-width:2}.test{fill:#123c50;stroke:#38bdf8;stroke-width:2}.ev{fill:#14352f;stroke:#34d399;stroke-width:2}.rel{fill:#41233e;stroke:#f472b6;stroke-width:2}.t{fill:#f8fafc;font:700 24px sans-serif}.s{fill:#cbd5e1;font:17px sans-serif}.m{fill:#94a3b8;font:15px sans-serif}.line{stroke:#94a3b8;stroke-width:3;fill:none;marker-end:url(#a)}</style><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#94a3b8"/></marker></defs>
+  <rect class="bg" width="1200" height="720" rx="24"/><text class="t" x="60" y="60">发布不是看“测试通过率”，而是看证据链是否闭合</text>
+  <rect class="box" x="45" y="135" width="160" height="100" rx="14"/><text class="t" x="125" y="177" text-anchor="middle">用户需要</text><text class="m" x="125" y="207" text-anchor="middle">现场要解决什么</text>
+  <rect class="box" x="245" y="135" width="160" height="100" rx="14"/><text class="t" x="325" y="177" text-anchor="middle">系统需求</text><text class="m" x="325" y="207" text-anchor="middle">可检验的指标</text>
+  <rect class="risk" x="445" y="135" width="160" height="100" rx="14"/><text class="t" x="525" y="177" text-anchor="middle">风险控制</text><text class="m" x="525" y="207" text-anchor="middle">失败时如何保护</text>
+  <rect class="box" x="645" y="135" width="160" height="100" rx="14"/><text class="t" x="725" y="177" text-anchor="middle">设计 / 实现</text><text class="m" x="725" y="207" text-anchor="middle">代码与配置版本</text>
+  <rect class="test" x="845" y="135" width="160" height="100" rx="14"/><text class="t" x="925" y="177" text-anchor="middle">测试用例</text><text class="m" x="925" y="207" text-anchor="middle">条件、步骤、预期</text>
+  <path class="line" d="M205 185 H235"/><path class="line" d="M405 185 H435"/><path class="line" d="M605 185 H635"/><path class="line" d="M805 185 H835"/>
+  <rect class="ev" x="425" y="330" width="360" height="150" rx="18"/><text class="t" x="605" y="375" text-anchor="middle">测试结果与原始证据</text><text class="s" x="605" y="415" text-anchor="middle">版本 · 环境 · 数据 · 日志 · 报告 · 偏差</text><text class="m" x="605" y="450" text-anchor="middle">失败结果也要保存，不能只留一张“通过”截图</text><path class="line" d="M925 235 V285 H605 V320"/>
+  <rect class="rel" x="130" y="545" width="420" height="120" rx="18"/><text class="t" x="340" y="588" text-anchor="middle">发布决定</text><text class="s" x="340" y="625" text-anchor="middle">测了什么 · 没测什么 · 剩余风险 · 灰度与回滚</text>
+  <rect class="box" x="650" y="545" width="420" height="120" rx="18"/><text class="t" x="860" y="588" text-anchor="middle">生产追踪</text><text class="s" x="860" y="625" text-anchor="middle">哪个版本 · 部署到哪里 · 对应哪批证据</text>
+  <path class="line" d="M520 480 V520 H340 V535"/><path class="line" d="M690 480 V520 H860 V535"/><path class="line" d="M550 605 H640"/>
+  <text class="m" x="60" y="695">任何一条关键需求，都应该能顺着箭头找到测试结果；任何一个生产版本，也应能反查批准它的证据。</text>
+</svg>

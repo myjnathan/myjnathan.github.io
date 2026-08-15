@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">生产系统测试分层</title><desc id="desc">从快速便宜的静态检查和单元测试，到契约、集成、系统、HIL 与用户确认，测试越接近真实环境成本越高但证据越完整。</desc>
+  <defs><style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.t{font-size:30px;font-weight:700}.s{font-size:15px;fill:#9fb0c8}.h{font-size:18px;font-weight:700}.b{font-size:14px;fill:#b7c5d9}.l1{fill:#12233d;stroke:#55aaff;stroke-width:2}.l2{fill:#10283a;stroke:#34d399;stroke-width:2}.l3{fill:#211b3b;stroke:#a78bfa;stroke-width:2}</style></defs>
+  <rect width="1200" height="720" rx="24" fill="#0b1220"/><text x="52" y="58" class="t">测试分层：越靠下越容易定位，越靠上越接近真实</text><text x="52" y="88" class="s">安全关键系统不是只画一个金字塔；软件、接口、设备和真实场景要逐层补证据。</text>
+  <text x="52" y="140" class="s">反馈快、成本低、适合每次提交</text>
+  <rect x="52" y="160" width="1096" height="66" rx="14" class="l1"/><text x="78" y="201" class="h">静态检查　｜　编译告警、lint、类型、危险 API、依赖、密钥</text>
+  <rect x="112" y="240" width="1036" height="66" rx="14" class="l1"/><text x="138" y="281" class="h">单元测试　｜　算法、状态转换、边界条件、错误分支</text>
+  <rect x="192" y="320" width="956" height="66" rx="14" class="l2"/><text x="218" y="361" class="h">组件与契约　｜　数据库、队列、协议语义、新旧版本组合</text>
+  <rect x="282" y="400" width="866" height="66" rx="14" class="l2"/><text x="308" y="441" class="h">集成与系统　｜　真实服务、OS、配置、网络和完整业务流程</text>
+  <rect x="382" y="480" width="766" height="66" rx="14" class="l3"/><text x="408" y="521" class="h">SIL / HIL / 故障注入　｜　控制闭环、驱动、硬件和恢复行为</text>
+  <rect x="492" y="560" width="656" height="66" rx="14" class="l3"/><text x="518" y="601" class="h">确认测试　｜　真实操作者、使用流程、理解与接管</text>
+  <text x="52" y="680" class="s">越接近真实环境，执行越慢、定位越难，因此只把组合风险和最终结论留给上层测试。</text>
+</svg>

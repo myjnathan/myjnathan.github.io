@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">风险驱动的测试力度</title><desc id="desc">根据失败后果与变更影响面决定测试深度，从常规回归逐步增加独立验证、故障注入、SIL/HIL 和确认测试。</desc>
+  <defs><style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.t{font-size:30px;font-weight:700}.s{font-size:15px;fill:#9fb0c8}.h{font-size:18px;font-weight:700}.b{font-size:14px;fill:#b7c5d9}.low{fill:#10283a;stroke:#34d399;stroke-width:2}.mid{fill:#27243b;stroke:#fbbf24;stroke-width:2}.high{fill:#2d1725;stroke:#fb7185;stroke-width:2}.axis{stroke:#66758d;stroke-width:2}</style></defs>
+  <rect width="1200" height="720" rx="24" fill="#0b1220"/><text x="52" y="58" class="t">不是所有改动都测一样多</text><text x="52" y="88" class="s">测试力度由失败后果和影响面决定，而不是由代码行数或固定覆盖率决定。</text>
+  <line x1="170" y1="590" x2="1100" y2="590" class="axis"/><line x1="170" y1="590" x2="170" y2="150" class="axis"/><text x="500" y="640" class="h">变更影响面：模块 → 接口 → 系统 → 多设备/临床流程</text><text transform="translate(70 500) rotate(-90)" class="h">失败后果：不便 → 停机/数据 → 安全风险</text>
+  <rect x="210" y="430" width="250" height="120" rx="16" class="low"/><text x="234" y="468" class="h">低风险</text><text x="234" y="500" class="b">代码评审 + 单元测试</text><text x="234" y="528" class="b">常规功能回归</text>
+  <rect x="490" y="300" width="270" height="170" rx="16" class="mid"/><text x="516" y="340" class="h">中风险</text><text x="516" y="374" class="b">组件 + 契约 + 集成</text><text x="516" y="404" class="b">安装升级 + 性能</text><text x="516" y="434" class="b">明确回滚测试</text>
+  <rect x="790" y="175" width="280" height="210" rx="16" class="high"/><text x="816" y="216" class="h">高风险</text><text x="816" y="250" class="b">独立验证 + 边界条件</text><text x="816" y="280" class="b">故障注入 + 重复性</text><text x="816" y="310" class="b">SIL / HIL / 整机</text><text x="816" y="340" class="b">用户确认 + 正式证据</text>
+  <text x="52" y="686" class="s">例：修改文案和修改控制权状态机都可能只有几行代码，但后者需要覆盖网络、协议、UI、设备和临床接管。</text>
+</svg>

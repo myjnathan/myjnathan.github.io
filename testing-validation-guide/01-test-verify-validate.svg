@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">测试、验证和确认的关系</title><desc id="desc">测试是获得证据的方法，验证检查是否按要求实现，确认检查产品是否适合真实用户和场景。</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3L0 6Z" fill="#55aaff"/></marker><style>text{font-family:Inter,"Microsoft YaHei",sans-serif;fill:#e6edf7}.t{font-size:30px;font-weight:700}.s{font-size:15px;fill:#9fb0c8}.h{font-size:21px;font-weight:700}.b{font-size:15px;fill:#b7c5d9}.q{font-size:17px;fill:#fbbf24}.n{fill:#111c33;stroke:#2d4266;stroke-width:2}.g{fill:#10283a;stroke:#34d399;stroke-width:2}.p{fill:#211b3b;stroke:#a78bfa;stroke-width:2}.f{stroke:#55aaff;stroke-width:3;fill:none;marker-end:url(#a)}</style></defs>
+  <rect width="1200" height="680" rx="24" fill="#0b1220"/><text x="52" y="58" class="t">测试是方法，验证和确认是要回答的问题</text><text x="52" y="88" class="s">三个词常被混用，但它们关注的对象并不一样。</text>
+  <rect x="52" y="145" width="320" height="190" rx="18" class="n"/><text x="80" y="190" class="h">测试 Test</text><text x="80" y="227" class="q">“怎样拿到证据？”</text><text x="80" y="266" class="b">输入、扰动、观察、比较</text><text x="80" y="298" class="b">单元 / 集成 / HIL / 用户试用</text>
+  <rect x="440" y="145" width="320" height="190" rx="18" class="g"/><text x="468" y="190" class="h">验证 Verification</text><text x="468" y="227" class="q">“有没有按要求做对？”</text><text x="468" y="266" class="b">需求、设计和实现是否一致</text><text x="468" y="298" class="b">例：断网 100 ms 内进入安全状态</text>
+  <rect x="828" y="145" width="320" height="190" rx="18" class="p"/><text x="856" y="190" class="h">确认 Validation</text><text x="856" y="227" class="q">“做的是不是用户需要的？”</text><text x="856" y="266" class="b">真实场景、用户和使用风险</text><text x="856" y="298" class="b">例：医生能否理解告警并正确接管</text>
+  <path d="M372 240H432M760 240H820" class="f"/>
+  <rect x="52" y="404" width="1096" height="154" rx="18" class="n"/><text x="80" y="445" class="h">同一个改动，需要不同证据</text><text x="80" y="484" class="b">代码层：状态机进入“等待确认”　　系统层：医生确认前远程指令不驱动从手</text><text x="80" y="520" class="b">场景层：操作者能理解提示、知道何时接管，并且恢复流程不会引入新风险</text>
+  <text x="52" y="626" class="s">测试全部通过不自动等于验证和确认完成；先说清楚要回答的问题，再选择测试方法。</text>
+</svg>
